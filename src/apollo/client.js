@@ -39,7 +39,10 @@
 
 // export default client;
 
+require('dotenv').config();
 
+const app = process.env.APP;
+const javascript = process.env.JAVASCRIPT;
 
 const { ApolloClient, HttpLink, InMemoryCache } = require('@apollo/client');
 const fetch = require('cross-fetch');
@@ -49,8 +52,8 @@ const client = new ApolloClient({
   link: new HttpLink({
     uri: 'https://parseapi.back4app.com/graphql',
       headers: {
-    'X-Parse-Application-Id': 'FspvNj4NrCPZQta4r0cvjqmYQmBGzOC364QFB1se',
-    'X-Parse-Javascript-Key': 'bCXvcgWbouq1JcLsZFQAABYnLvul58Xs45R1SHPa'
+    'X-Parse-Application-Id': app,
+    'X-Parse-Javascript-Key': javascript
   },
     fetch,
   }),

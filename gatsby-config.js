@@ -2,7 +2,12 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 
+// require('dotenv').config();
 require('dotenv').config();
+
+const app = process.env.APP;
+const javascript = process.env.JAVASCRIPT;
+
 module.exports = {
   siteMetadata: {
     title: `parsegatsby`,
@@ -15,8 +20,8 @@ module.exports = {
       options: {
         uri: 'https://parseapi.back4app.com/graphql',
         headers: {
-          'X-Parse-Application-Id': 'FspvNj4NrCPZQta4r0cvjqmYQmBGzOC364QFB1se',
-          'X-Parse-Javascript-Key': 'bCXvcgWbouq1JcLsZFQAABYnLvul58Xs45R1SHPa',
+          'X-Parse-Application-Id': app,
+          'X-Parse-Javascript-Key': javascript
         },
       },
     },
