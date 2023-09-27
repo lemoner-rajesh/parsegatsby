@@ -24,6 +24,7 @@ module.exports = {
           'X-Parse-Javascript-Key': javascript
         },
       },
-    },
+    }
+
   ],
 }

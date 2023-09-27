@@ -3,6 +3,8 @@ import { graphql } from "gatsby";
 import { useQuery } from '@apollo/client';
 import { Link } from 'gatsby';
 import gql from 'graphql-tag';
+
+
 // import parse from "html-react-parser"
 const GET_DATA = gql`
 query homePageQueryPage($id:  ID!) {    
@@ -10,6 +12,7 @@ query homePageQueryPage($id:  ID!) {
           title
           content
           id
+          featured_image_acf
         }
 
 }
@@ -31,16 +34,11 @@ const Page = (props) => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-
-//   const currentPage = props.data.wpPage;
-
-    // console.log("currentPage",currentPage)
   return (
-        //   <div>{parse(currentPage.content)}</div>    
-        <div>
+        <div className='container'>  
+            <img src={data.wordPressPost.featured_image_acf.url} style={{width:"100%", marginTop:"50px", marginBottom:"50px"}} />
             <h1>{data.wordPressPost.title}</h1>
             <div dangerouslySetInnerHTML={{__html:data.wordPressPost.content}} />
-
             <Link to="/"><h2>Back</h2></Link>
         </div>     
   )

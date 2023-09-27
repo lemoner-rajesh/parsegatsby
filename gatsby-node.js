@@ -18,7 +18,9 @@ query getPost {
     edges{
       node{        
         slug  
-        id      
+        id
+        title
+              
       }
     }
   }
@@ -36,6 +38,8 @@ data.wordPressPosts.edges.forEach(item => {
       context: {
         // Data passed to context is available in page queries as GraphQL variables.
         id: item.node.id,
+        slug:item.node.slug,
+        title:item.node.title
       },
     });
   });
